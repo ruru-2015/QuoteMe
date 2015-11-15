@@ -1,9 +1,43 @@
 {
-  "jspm": {
-    "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
-    }
+  "name": "QuoteMe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js 'test/**/*.@(js|jsx)'",
+    "start": "webpack-dev-server"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruru-2015/QuoteMe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruru-2015/QuoteMe/issues"
+  },
+  "homepage": "https://github.com/ruru-2015/QuoteMe#readme",
+  "devDependencies": {
+    "babel-core": "^6.1.21",
+    "babel-loader": "^6.1.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "chai": "^3.4.1",
+    "jsdom": "^7.0.2",
+    "mocha": "^2.3.4",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.12.6",
+    "webpack-dev-server": "^1.12.1"
+  },
+  "dependencies": {
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
   }
 }
