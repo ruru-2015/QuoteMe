@@ -1,19 +1,9 @@
 {
-  "name": "quote_me",
-  "version": "1.0.0",
-  "description": "A trade quote calculator",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ruru-2015/QuoteMe.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ruru-2015/QuoteMe/issues"
-  },
-  "homepage": "https://github.com/ruru-2015/QuoteMe#readme"
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
 }
