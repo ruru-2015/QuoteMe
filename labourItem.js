@@ -3,7 +3,12 @@ function LabourItem (config) {
   this.time = config.time;
   this.cost = config.cost;
   this.charge = config.charge;
-  this.totalBase = this.time*this.cost;
-  this.totalCharge = this.time*this.charge;
 }
 
+LabourItem.prototype.calcBaseTotal = function(){
+  return this.time*this.cost;
+};
+
+LabourItem.prototype.calcChargeTotal = function(){
+  return this.time*this.charge;
+};

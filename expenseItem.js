@@ -3,6 +3,12 @@ function ExpenseItem(config){
   this.quantity = config.quantity;
   this.cost = config.cost;
   this.charge = config.charge;
-  this.totalCost = this.quantity*this.cost;
-  this.totalCharge = this.quantity*this.charge;
 }
+
+ExpenseItem.prototype.calcTotalCost = function(){
+  return this.quantity*this.cost;
+};
+
+ExpenseItem.prototype.calcTotalCharge = function(){
+  return this.quantity*this.charge;
+};
