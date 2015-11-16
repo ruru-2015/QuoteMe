@@ -1,3 +1,5 @@
+var Firebase = require("firebase");
+
 function Quote(config){
   this.config = config;
 }
