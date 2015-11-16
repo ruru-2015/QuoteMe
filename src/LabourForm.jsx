@@ -2,6 +2,7 @@ import React from 'react'
 import TextField from 'material-ui/lib/text-field'
 import ReactDOM from 'react-dom'
 import RaisedButton from 'material-ui/lib/raised-button'
+import ExpenseItem from '../scripts/ExpenseItem'
 
 export default React.createClass({
   getDefaultProps: function() {
@@ -15,9 +16,9 @@ const name = this.refs.name.getValue()
 const time = this.refs.time.getValue()
 const cost = this.refs.cost.getValue()
 const charge = this.refs.charge.getValue()
-
-
+console.log(name,time)
   },
+
 
   render(){
     return(
