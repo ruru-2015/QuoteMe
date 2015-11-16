@@ -5,20 +5,26 @@ import { createStore  } from 'redux'
 import { Provider } from 'react-redux'
 
 // action types
-const TOTAL_COST = 'TOTAL_COST'
 
 // state
 const InitialState = {
-  totalCost: 0
+  totalCost: 0,
+  totalCharge: 0
 }
 
 // reducer
 function totalCostReducer  (state = InitialState, action) {
-  if (action.type === 'ßTOTAL_COST') {
+  if (action.type === 'TOTAL_COST') {
     return Object.assign({}, state, {
       totalCost: action.payload
     })
-  } else {
+  }
+else if (action.type === 'TOTAL_CHARGE') {
+    return Object.assign({}, state, {
+      totalCharge: action.payload
+    })
+  }
+  else {
     return state
   }
 }

@@ -17,10 +17,9 @@ var LabourForm =  React.createClass({
     var time= this.refs.time.getValue();
     var cost= this.refs.cost.getValue();
     var charge= this.refs.charge.getValue();
-    // var TotalCharge = time * charge
+    var totalCharge = time * charge;
     var totalCost = time * cost;
-    // this.props.updateTotalCharge(TotalCharge)
-
+    this.props.updateTotalCharge(totalCharge)
     this.props.updateTotalCost(totalCost)
 
 // var name = this.refs.name.getValue();
@@ -40,7 +39,7 @@ var LabourForm =  React.createClass({
   },
 
   render(){
-    const { totalCost } = this.props
+    const { totalCost,totalCharge } = this.props
 
     return(
       <form className="labourForm" onSubmit={this.onSubmit}>

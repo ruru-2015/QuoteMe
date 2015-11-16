@@ -10,21 +10,23 @@ import TotalForm from './TotalForm'
 import TextField from 'material-ui/lib/text-field'
 import LabourItem from '../scripts/LabourItem'
 import { connect } from 'react-redux'
-import { updateTotalCost } from './action-creators/updateTotalCost'
+import { updateTotalCost, updateTotalCharge } from './action-creators'
 
-import donut from '../scripts/d3.jsx'
- var divStyle = {
-    fontfamily: 'Poiret one'
+
+function mapStateToProps (state) {
+  return {
+    totalCost: state.totalCost,
+    totalCharge: state.totalCharge
   }
-
-
+}
 
 
 const Layout = React.createClass({
 
   render: function() {
-    console.log('props', this.props)
     const { dispatch, totalCost, totalCharge } = this.props
+    console.log('Layout props', this.props)
+
 
     return <div className="layout" style = {{display:'inline-block'}}>
             <AppBar />
@@ -37,7 +39,13 @@ const Layout = React.createClass({
                   updateTotalCost={totalCost =>
                     dispatch(updateTotalCost(totalCost))
                   }
-                  totalCost={totalCost}/>
+                  totalCost={totalCost}
+                     updateTotalCharge={totalCharge =>
+                    // dispatch({ type: 'TOTAL_COST', payload: totalCharge })
+
+                    dispatch(updateTotalCharge(totalCharge))
+                  }
+                  totalCharge={totalCharge}/>
             </Paper>
                <Paper className="paper" zDepth={3} style={{
                  display:'inline-block',
@@ -53,16 +61,11 @@ const Layout = React.createClass({
                 width: '30%',
                 height: '75%'
                 }}>
-                <TotalForm totalCost={totalCost} info={this.props}/>
+                <TotalForm totalCost={totalCost} totalCharge={totalCharge} info={this.props}/>
                </Paper>
            </div>
   }
 });
 
-function mapStateToProps (state) {
-  return {
-    totalCost: state.totalCost
-  }
-}
 
 export default connect(mapStateToProps)(Layout)

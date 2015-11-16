@@ -17,7 +17,7 @@ var TotalForm =  React.createClass({
   }},
 
   render(){
-    const { totalCost } = this.props
+    const { totalCost, totalCharge } = this.props
     console.log('totalForm props', this.props)
 
     return(
@@ -26,13 +26,13 @@ var TotalForm =  React.createClass({
         <TextField hintText={''+totalCost} ref='name' style={{
               width: '100%'
               }}  />
-        <TextField hintText="basetotal" ref='time' style={{
+        <TextField hintText= 'time'  ref='time' style={{
               width: '100%'
               }}/>
         <TextField hintText="Cost"ref='cost'style={{
               width: '100%'
               }} />
-        <TextField hintText="Charge"ref='charge' style={{
+        <TextField hintText={''+totalCharge}ref='charge' style={{
               width: '100%'
               }}/>
        <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>Add
