@@ -1,9 +1,11 @@
 function ExpenseItem(name,quantity,cost,charge){
   this.name = name;
-  this.quantity = quantity;
+  this.quantity =quantity;
   this.cost = cost;
   this.charge =charge;
+
 }
+
 
 ExpenseItem.prototype.calcTotalCost = function(){
   return this.quantity*this.cost;

@@ -12,24 +12,39 @@ export default React.createClass({
 
   onSubmit: function(e){
     e.preventDefault();
-const name = this.refs.name.getValue()
-const qty = this.refs.quantity.getValue()
-const cost = this.refs.cost.getValue()
-const charge = this.refs.charge.getValue()
-const item = new ExpenseItem(name,qty,cost,charge);
-console.log(item.calcTotalCost());
-
-
+var name = this.refs.name.getValue();
+var quantity= this.refs.quantity.getValue();
+var cost= this.refs.cost.getValue();
+var charge= this.refs.charge.getValue();
+var item = new ExpenseItem(name,quantity,cost,charge)
+var config = {
+  name: name,
+  quantity:quantity,
+  cost:cost,
+  charge:charge,
+  TotalCost:item.calcTotalCost(),
+  TotalCharge:item.calcTotalCharge()
+}
+console.log(config)
   },
+
 
   render(){
     return(
       <form className="ExpenseForm" onSubmit={this.onSubmit}>
       <p>Expenses </p>
-        <TextField hintText="Name" ref='name'   />
-        <TextField hintText="Qty" ref='quantity' />
-        <TextField hintText="Cost"ref='cost' />
-        <TextField hintText="Charge"ref='charge' />
+        <TextField hintText="Name" style={{
+              width: '100%'
+              }} ref='name'   />
+        <TextField hintText="Qty" ref='quantity' style={{
+              width: '100%'
+              }}/>
+        <TextField hintText="Cost"ref='cost' style={{
+              width: '100%'
+              }}/>
+        <TextField hintText="Charge"ref='charge'style={{
+              width: '100%'
+              }} />
        <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>
      </form>
     )
