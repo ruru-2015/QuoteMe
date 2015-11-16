@@ -17,7 +17,7 @@ var quantity= this.refs.quantity.getValue();
 var cost= this.refs.cost.getValue();
 var charge= this.refs.charge.getValue();
 var item = new ExpenseItem(name,quantity,cost,charge)
-var config = {
+var econfig = {
   name: name,
   quantity:quantity,
   cost:cost,
@@ -25,7 +25,7 @@ var config = {
   TotalCost:item.calcTotalCost(),
   TotalCharge:item.calcTotalCharge()
 }
-console.log(config)
+console.log(econfig)
   },
 
 

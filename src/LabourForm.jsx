@@ -10,25 +10,38 @@ var LabourForm =  React.createClass({
     value: ''
   }},
 
+
+
   onSubmit: function(e){
     e.preventDefault();
-var name = this.refs.name.getValue();
-var time= this.refs.time.getValue();
-var cost= this.refs.cost.getValue();
-var charge= this.refs.charge.getValue();
-var job = new LabourItem(name,time,cost,charge)
-var config = {
-  name: name,
-  time:time,
-  cost:cost,
-  charge:charge,
-  TotalCost:job.calcBaseTotal(),
-  TotalCharge:job.calcChargeTotal()
-}
-console.log(config)
+    var time= this.refs.time.getValue();
+    var cost= this.refs.cost.getValue();
+    var charge= this.refs.charge.getValue();
+    // var TotalCharge = time * charge
+    var totalCost = time * cost;
+    // this.props.updateTotalCharge(TotalCharge)
+
+    this.props.updateTotalCost(totalCost)
+
+// var name = this.refs.name.getValue();
+// var time= this.refs.time.getValue();
+// var cost= this.refs.cost.getValue();
+// var charge= this.refs.charge.getValue();
+// var job = new LabourItem(name,time,cost,charge)
+// var lconfig = {
+//   name: name,
+//   time:time,
+//   cost:cost,
+//   charge:charge,
+//   TotalCost:job.calcBaseTotal(),
+//   TotalCharge:job.calcChargeTotal()
+// }
+// console.log(lconfig)
   },
 
   render(){
+    const { totalCost } = this.props
+
     return(
       <form className="labourForm" onSubmit={this.onSubmit}>
       <p>Labour Costs</p>
