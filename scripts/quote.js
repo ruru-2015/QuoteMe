@@ -3,7 +3,7 @@ var Firebase = require("firebase");
 function Quote(config){
   this.labourItems = config.labourItems;
   this.expenseItems = config.expenseItems;
-}
+};
 
 Quote.prototype.save = function() {
    var quoteListRef = new Firebase('https://quotemedad.firebaseIO.com/quotes');
@@ -12,3 +12,4 @@ Quote.prototype.save = function() {
 };
 
 
+module.exports = Quote

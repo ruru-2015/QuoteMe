@@ -1,11 +1,17 @@
-var expect = require('chai').expect
-  , leQuote = new Quote({{}});
+var expect = require('chai').expect;
+var Quote = require('../scripts/quote.js');
 
-var quote = require('../scripts/quote.js')
-
-describe('quote', function(){
-  it('should return -1 when the value is not present', function () {
-      expect.equal(-1, [1,2,3].indexOf(5));
-      expect.equal(-1, [1,2,3].indexOf(0));
-    });
-});
+var q = new Quote({labourItems: 'l', expenseItems: 'p'})
+console.log(q.labourItems)
+// var leQuote =  addQuote({labourItems: 'labour'});
+// describe('quote', function(leQuote){
+//   it('should return -1 when the value is not present', function () {
+//       expect(19).to.equal(19);
+//     });
+//   it('should return useless test donnie', function(){
+//     expect('dad').to.be.a('string');
+//   });
+//   it('should contain labour items', function(){
+//     expect(leQuote.labourItems).to.equal(true);
+//   });
+// });
