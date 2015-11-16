@@ -12,7 +12,7 @@ export default React.createClass({
   onSubmit: function(e){
     e.preventDefault();
 const name = this.refs.name.getValue()
-const time = this.refs.time.getValue()
+const qty = this.refs.qty.getValue()
 const cost = this.refs.cost.getValue()
 const charge = this.refs.charge.getValue()
 
@@ -21,13 +21,13 @@ const charge = this.refs.charge.getValue()
 
   render(){
     return(
-      <form className="labourForm" onSubmit={this.onSubmit}>
-      <p>Labour Costs</p>
+      <form className="ExpenseForm" onSubmit={this.onSubmit}>
+      <p>Expenses </p>
         <TextField hintText="Name" ref='name'   />
-        <TextField hintText="Time" ref='time' />
+        <TextField hintText="Qty" ref='qty' />
         <TextField hintText="Cost"ref='cost' />
         <TextField hintText="Charge"ref='charge' />
-       <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>Add
+       <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>
      </form>
     )
   }
