@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import RaisedButton from 'material-ui/lib/raised-button'
 import LabourItem from '../scripts/LabourItem'
 
-export default React.createClass({
+var LabourForm =  React.createClass({
   getDefaultProps: function() {
   return {
     value: ''
