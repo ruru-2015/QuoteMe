@@ -3,7 +3,7 @@ import TextField from 'material-ui/lib/text-field'
 import ReactDOM from 'react-dom'
 import RaisedButton from 'material-ui/lib/raised-button'
 import ExpenseItem from '../scripts/ExpenseItem'
-import { addJob, addItem,updateName }from './action-creators'
+import { addJob, addItem,updateName,updateeTotalCharge,updateeTotalCost }from './action-creators'
 
 export default React.createClass({
   getDefaultProps: function() {
@@ -11,7 +11,7 @@ export default React.createClass({
     value: ''
   }},
 
-  onSubmit: function(e){
+  onChange: function(e){
     const { dispatch } = this.props;
     console.log('expense props', this.props)
     e.preventDefault();
@@ -21,9 +21,14 @@ export default React.createClass({
     var charge= this.refs.charge.getValue();
     var etotalCharge = quantity * charge;
     var etotalCost = quantity * cost;
-    this.props.updateName(name);
-    this.props.updateeTotalCharge(etotalCharge);
-    this.props.updateeTotalCost(etotalCost);
+    dispatch(updateName(name))
+    dispatch(updateeTotalCharge(etotalCharge));
+    dispatch(updateeTotalCost(etotalCost));
+
+  },
+   onSubmit: function(e){
+    const { dispatch } = this.props
+    e.preventDefault();
     dispatch(addItem(this.props.activeJob))
   },
 
@@ -33,7 +38,7 @@ export default React.createClass({
         const { etotalCost, etotalCharge,ename } = this.props.activeJob
 
     return(
-      <form className="ExpenseForm" onSubmit={this.onSubmit}>
+      <form className="ExpenseForm" onChange={this.onChange} onSubmit={this.onSubmit}>
       <p>Expenses </p>
         <TextField hintText="Name" style={{
               width: '100%'
@@ -47,8 +52,8 @@ export default React.createClass({
         <TextField hintText="Charge"ref='charge'style={{
               width: '100%'
               }} />
-           <p>Labour cost: {etotalCost} </p>
-        <p>Labour charge: {etotalCharge} </p>
+           <p>Expense cost: {etotalCost} </p>
+        <p>Expense charge: {etotalCharge} </p>
        <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>
      </form>
     )

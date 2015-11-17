@@ -15,8 +15,9 @@ const InitialState = {
     etotalCost: 0,
     etotalCharge: 0,
   },
-  jobs: [],
-  items:[],
+
+  jobState: { jobs: [], finalCost: 0, finalCharge: 0 },
+  itemState:{items:[], efinalCost: 0, efinalCharge: 0},
 }
 
 // reducer
@@ -59,23 +60,28 @@ else if (action.type === 'TOTAL_CHARGE') {
   }
 }
 
-function jobsReducer (state = [], action) {
+function jobStateReducer (state = { jobs: [], finalCost: 0, finalCharge:0 }, action) {
     if(action.type === 'ADD_JOB'){
-      return [
-        ...state,
-        action.payload
-      ]
+      return {
+        jobs: [...state.jobs, action.payload ],
+        finalCost: (state.finalCost + action.payload.totalCost),
+        finalCharge: (state.finalCharge + action.payload.totalCharge)
+      }
     } else {
       return state
     }
 }
 
-function itemsReducer (state = [], action) {
+
+
+function itemStateReducer (state = { items: [], efinalCost: 0, efinalCharge:0 }, action) {
   if(action.type === 'ADD_ITEM'){
-      return[
-        ...state,
-        action.payload
-      ]
+      return {
+        items: [...state.items, action.payload ],
+        efinalCost: (state.efinalCost + action.payload.etotalCost),
+        efinalCharge: (state.efinalCharge + action.payload.etotalCharge)
+
+      }
     } else {
       return state
     }
@@ -84,9 +90,8 @@ function itemsReducer (state = [], action) {
  function quoteMap(state = InitialState, action) {
   return {
     activeJob: activeJobReducer(state.activeJob, action),
-    jobs: jobsReducer(state.jobs, action),
-    items: itemsReducer(state.items, action)
-
+    jobState: jobStateReducer(state.jobState, action),
+    itemState: itemStateReducer(state.itemState, action),
   }
 }
 

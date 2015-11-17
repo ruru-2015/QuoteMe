@@ -13,7 +13,7 @@ var LabourForm =  React.createClass({
 
 
 
-  onSubmit: function(e){
+  onChange: function(e){
     const { dispatch } = this.props
     console.log('labour props', this.props)
     e.preventDefault();
@@ -26,6 +26,11 @@ var LabourForm =  React.createClass({
     this.props.updateName(name);
     this.props.updateTotalCharge(totalCharge);
     this.props.updateTotalCost(totalCost);
+
+  },
+  onSubmit: function(e){
+    const { dispatch } = this.props
+    e.preventDefault();
     dispatch(addJob(this.props.activeJob))
   },
 
@@ -34,7 +39,7 @@ var LabourForm =  React.createClass({
     const { totalCost, totalCharge } = this.props.activeJob
 
     return(
-      <form className="LabourForm" onSubmit={this.onSubmit}>
+      <form className="LabourForm" onChange={this.onChange} onSubmit={this.onSubmit}>
       <p>Labour Costs</p>
         <TextField hintText="Name" ref='name' style={{
               width: '100%'

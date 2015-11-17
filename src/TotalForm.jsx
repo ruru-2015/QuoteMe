@@ -19,18 +19,16 @@ var TotalForm =  React.createClass({
 
   render(){
     console.log('props in totalForm', this.props)
-    const { jobs, items } = this.props
-    const { etotalCost, etotalCharge, totalCost, totalCharge, name } = this.props.activeJob
+
     console.log('totalForm props', this.props)
-     var finalCost = etotalCost+totalCost;
-     var finalCharge = etotalCharge+totalCharge;
+
     return(
       <div>
         <p>Your Jobs</p>
           <p>Totals</p>
-          <TotalsTable jobs={jobs} items={items}/>
-            <p>Total Cost: {finalCost} </ p>
-            <p>Total Price:{finalCharge} </p>
+
+          <TotalsTable {...this.props}/>
+
       </div>
     )
   }

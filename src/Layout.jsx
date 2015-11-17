@@ -23,8 +23,15 @@ function mapStateToProps (state) {
 const Layout = React.createClass({
 
   render: function() {
-    const { dispatch, activeJob } = this.props
     console.log('Layout props', this.props)
+
+    // do data structure access here (only)
+    const { dispatch, activeJob } = this.props
+    const { jobs, finalCost, finalCharge } = this.props.jobState
+    const { items, efinalCost, efinalCharge } = this.props.itemState
+    const { etotalCost, etotalCharge, totalCost, totalCharge, name } = this.props.activeJob
+
+
 
 
     return <div className="layout" style = {{display:'inline-block'}}>
@@ -70,7 +77,15 @@ const Layout = React.createClass({
                 width: '30%',
                 height: '75%'
                 }}>
-                <TotalForm {...this.props} />
+                <TotalForm
+                  jobs ={jobs}
+                  items = {items}
+                  totalCharge = {totalCharge}
+                  totalCost = {totalCost}
+                  finalCost = {finalCost}
+                  finalCharge = {finalCharge}
+                  efinalCost = {efinalCost}
+                  efinalCharge = {efinalCharge} />
                </Paper>
            </div>
   }
