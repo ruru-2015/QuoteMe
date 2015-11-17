@@ -1,9 +1,11 @@
-function ExpenseItem(config){
-  this.name = config.name;
-  this.quantity = config.quantity;
-  this.cost = config.cost;
-  this.charge = config.charge;
+function ExpenseItem(name,quantity,cost,charge){
+  this.name = name;
+  this.quantity =quantity;
+  this.cost = cost;
+  this.charge =charge;
+
 }
+
 
 ExpenseItem.prototype.calcTotalCost = function(){
   return this.quantity*this.cost;
@@ -21,3 +23,5 @@ ExpenseItem.prototype.michaelmcgrath = function(fancyHats, theNiceMans){
 
   return theString;
 };
+
+export default ExpenseItem
