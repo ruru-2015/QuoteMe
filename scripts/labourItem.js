@@ -1,8 +1,8 @@
-function LabourItem (config) {
-  this.name = config.name;
-  this.time = config.time;
-  this.cost = config.cost;
-  this.charge = config.charge;
+function LabourItem (name,time,cost,charge) {
+  this.name = name;
+  this.time = time;
+  this.cost = cost;
+  this.charge = charge;
 }
 
 LabourItem.prototype.calcBaseTotal = function(){
@@ -12,3 +12,5 @@ LabourItem.prototype.calcBaseTotal = function(){
 LabourItem.prototype.calcChargeTotal = function(){
   return this.time*this.charge;
 };
+
+export default LabourItem
