@@ -21,3 +21,5 @@ ExpenseItem.prototype.michaelmcgrath = function(fancyHats, theNiceMans){
 
   return theString;
 };
+
+module.exports = ExpenseItem
