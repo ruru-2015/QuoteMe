@@ -12,24 +12,20 @@ export default React.createClass({
 
   onSubmit: function(e){
     e.preventDefault();
-var name = this.refs.name.getValue();
-var quantity= this.refs.quantity.getValue();
-var cost= this.refs.cost.getValue();
-var charge= this.refs.charge.getValue();
-var item = new ExpenseItem(name,quantity,cost,charge)
-var econfig = {
-  name: name,
-  quantity:quantity,
-  cost:cost,
-  charge:charge,
-  TotalCost:item.calcTotalCost(),
-  TotalCharge:item.calcTotalCharge()
-}
-console.log(econfig)
+    var ename = this.refs.name.getValue();
+    var quantity= this.refs.quantity.getValue();
+    var cost= this.refs.cost.getValue();
+    var charge= this.refs.charge.getValue();
+    var etotalCharge = quantity * charge;
+    var etotalCost = quantity * cost;
+    this.props.updateeTotalCharge(etotalCharge)
+    this.props.updateeTotalCost(etotalCost)
   },
 
 
   render(){
+        const { etotalCost,etotalCharge } = this.props
+
     return(
       <form className="ExpenseForm" onSubmit={this.onSubmit}>
       <p>Expenses </p>
@@ -38,13 +34,15 @@ console.log(econfig)
               }} ref='name'   />
         <TextField hintText="Qty" ref='quantity' style={{
               width: '100%'
-              }}/>
+              }} />
         <TextField hintText="Cost"ref='cost' style={{
               width: '100%'
               }}/>
         <TextField hintText="Charge"ref='charge'style={{
               width: '100%'
               }} />
+           <p>Labour cost: {''+etotalCost} </p>
+        <p>Labour charge: {''+etotalCharge} </p>
        <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>
      </form>
     )
