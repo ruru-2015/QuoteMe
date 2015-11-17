@@ -18,18 +18,20 @@ var TotalForm =  React.createClass({
   }},
 
   render(){
-    const { totalCost, totalCharge, etotalCost, etotalCharge, name, ename} = this.props
+    console.log('props in totalForm', this.props)
+    const { jobs, items } = this.props
+    const { etotalCost, etotalCharge, totalCost, totalCharge, name } = this.props.activeJob
     console.log('totalForm props', this.props)
      var finalCost = etotalCost+totalCost;
      var finalCharge = etotalCharge+totalCharge;
+
     return(
       <div>
         <p>Your Jobs</p>
           <p>Totals</p>
-          <TotalsTable />
-          <TextField hintText={ename}  />
-            <p>Total cost to you: {''+finalCost} </ p>
-            <p>Recommmended Price:{''+finalCharge} </p>
+          <TotalsTable jobs={jobs} items={items}/>
+            <p>Total cost to you: {finalCost} </ p>
+            <p>Recommmended Price:{finalCharge} </p>
       </div>
     )
   }

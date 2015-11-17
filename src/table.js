@@ -12,89 +12,47 @@ const TableRowColumn = require('material-ui/lib/table/table-row-column');
 var TotalsTable =  React.createClass({
 
   render: function() {
+
+    const {items, jobs, activeJob} = this.props
+    console.log('table', this.props)
     this.state = {
-      fixedHeader: true,
-      fixedFooter: true,
+      fixedHeader: false,
+      fixedFooter: false,
       stripedRows: false,
       showRowHover: false,
-      selectable: true,
+      selectable: false,
       multiSelectable: false,
       enableSelectAll: false,
-      deselectOnClickaway: true,
+      deselectOnClickaway: false,
       height: '300px',
     };
     return(
-      <Table
-        height={this.state.height}
-        fixedHeader={this.state.fixedHeader}
-        fixedFooter={this.state.fixedFooter}
-        selectable={this.state.selectable}
-        multiSelectable={this.state.multiSelectable}
-        onRowSelection={this._onRowSelection}>
-        <TableHeader enableSelectAll={this.state.enableSelectAll}>
+      <Table>
+        <TableHeader >
           <TableRow>
-            <TableHeaderColumn colSpan="3" tooltip='Super Header' style={{textAlign: 'center'}}>
-              Super Header
+            <TableHeaderColumn colSpan="3" tooltip='Labour' style={{textAlign: 'center'}}>
+              Labour cost
             </TableHeaderColumn>
           </TableRow>
           <TableRow>
-            <TableHeaderColumn tooltip='The ID'>ID</TableHeaderColumn>
-            <TableHeaderColumn tooltip='The Name'>Name</TableHeaderColumn>
-            <TableHeaderColumn tooltip='The Status'>Status</TableHeaderColumn>
+            <TableHeaderColumn >Charge</TableHeaderColumn>
+            <TableHeaderColumn >Name</TableHeaderColumn>
+            <TableHeaderColumn>Cost</TableHeaderColumn>
           </TableRow>
         </TableHeader>
-        <TableBody
-          deselectOnClickaway={this.state.deselectOnClickaway}
-          showRowHover={this.state.showRowHover}
-          stripedRows={this.state.stripedRows}>
-        <TableRow selected={true}>
-            <TableRowColumn>1</TableRowColumn>
-            <TableRowColumn>John Smith</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>2</TableRowColumn>
-            <TableRowColumn>Randal White</TableRowColumn>
-            <TableRowColumn>Unemployed</TableRowColumn>
-          </TableRow>
-          <TableRow selected={true}>
-            <TableRowColumn>3</TableRowColumn>
-            <TableRowColumn>Stephanie Sanders</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>4</TableRowColumn>
-            <TableRowColumn>Steve Brown</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>5</TableRowColumn>
-            <TableRowColumn>Joyce Whitten</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>6</TableRowColumn>
-            <TableRowColumn>Samuel Roberts</TableRowColumn>
-            <TableRowColumn>Unemployed</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>7</TableRowColumn>
-            <TableRowColumn>Adam Moore</TableRowColumn>
-            <TableRowColumn>Employed</TableRowColumn>
-          </TableRow>
+        <TableBody>
+          {
+            jobs.map(job => {
+              return (
+                <TableRow>
+                  <TableRowColumn >{job.name}</TableRowColumn>
+                  <TableRowColumn>{job.totalCost}</TableRowColumn>
+                  <TableRowColumn>{job.totalCharge}</TableRowColumn>
+                </TableRow>
+                )
+            })
+          }
         </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableRowColumn>ID</TableRowColumn>
-            <TableRowColumn>Name</TableRowColumn>
-            <TableRowColumn>Status</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
-              Super Footer
-            </TableRowColumn>
-          </TableRow>
-        </TableFooter>
       </Table>
     )
   }

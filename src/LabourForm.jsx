@@ -3,6 +3,7 @@ import TextField from 'material-ui/lib/text-field'
 import ReactDOM from 'react-dom'
 import RaisedButton from 'material-ui/lib/raised-button'
 import LabourItem from '../scripts/LabourItem'
+import { addJob, addItem,updateName }from './action-creators'
 
 var LabourForm =  React.createClass({
   getDefaultProps: function() {
@@ -13,6 +14,8 @@ var LabourForm =  React.createClass({
 
 
   onSubmit: function(e){
+    const { dispatch } = this.props
+    console.log('props', this.props)
     e.preventDefault();
     var name = this.refs.name.getValue();
     var time= this.refs.time.getValue();
@@ -20,12 +23,16 @@ var LabourForm =  React.createClass({
     var charge= this.refs.charge.getValue();
     var totalCharge = time * charge;
     var totalCost = time * cost;
-    this.props.updateTotalCharge(totalCharge)
-    this.props.updateTotalCost(totalCost)
+    this.props.updateName(name);
+    this.props.updateTotalCharge(totalCharge);
+    this.props.updateTotalCost(totalCost);
+    dispatch(addJob(this.props.activeJob))
   },
 
   render(){
-    const { totalCost,totalCharge } = this.props
+    console.log('props in LabourForm', this.props)
+    const { totalCost, totalCharge } = this.props.activeJob
+
     return(
       <form className="LabourForm" onSubmit={this.onSubmit}>
       <p>Labour Costs</p>
@@ -41,8 +48,8 @@ var LabourForm =  React.createClass({
         <TextField hintText="Charge"ref='charge' style={{
               width: '100%'
               }}/>
-        <p>Labour cost: {''+totalCost} </p>
-        <p>Labour charge: {''+totalCharge} </p>
+        <p>Labour cost: {totalCost} </p>
+        <p>Labour charge: {totalCharge} </p>
        <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>Add
      </form>
     )

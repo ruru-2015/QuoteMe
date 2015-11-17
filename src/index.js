@@ -8,24 +8,31 @@ import { Provider } from 'react-redux'
 
 // state
 const InitialState = {
-  name:'',
-  ename:'',
-  totalCost: 0,
-  totalCharge: 0,
-  etotalCost: 0,
-  etotalCharge: 0,
+  activeJob : {
+    name:'',
+    ename:'',
+    totalCost: 0,
+    totalCharge: 0,
+    etotalCost: 0,
+    etotalCharge: 0,
+  },
+  jobs: [],
+  items:[],
 }
 
 // reducer
-function totalCostReducer  (state = InitialState, action) {
+
+function activeJobReducer (state = {}, action) {
   if (action.type === 'TOTAL_COST') {
     return Object.assign({}, state, {
-      totalCost: action.payload
+      totalCost: action.payload,
+
     })
   }
 else if (action.type === 'TOTAL_CHARGE') {
     return Object.assign({}, state, {
-      totalCharge: action.payload
+      totalCharge: action.payload,
+
     })
   }
   else if (action.type === 'ETOTAL_COST') {
@@ -38,14 +45,48 @@ else if (action.type === 'TOTAL_CHARGE') {
       etotalCharge: action.payload
     })
   }
+   else if (action.type === 'NAME') {
+    return Object.assign({}, state, {
+      name: action.payload
+    })
+  }
   else {
     return state
   }
 }
 
+function jobsReducer (state = [], action) {
+    if(action.type === 'ADD_JOB'){
+      return [
+        ...state,
+        action.payload
+      ]
+    } else {
+      return state
+    }
+}
 
+function itemsReducer (state = [], action) {
+  if(action.type === 'ADD_ITEM'){
+      return[
+        ...state,
+        action.payload
+      ]
+    } else {
+      return state
+    }
+}
 
-const store = createStore(totalCostReducer)
+ function quoteMap(state = InitialState, action) {
+  return {
+    activeJob: activeJobReducer(state.activeJob, action),
+    jobs: jobsReducer(state.jobs, action),
+    items: itemsReducer(state.items, action)
+
+  }
+}
+
+const store = createStore(quoteMap)
 
 ReactDOM.render(
   <Provider store={store} >
