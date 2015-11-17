@@ -10,7 +10,7 @@ import TotalForm from './TotalForm'
 import TextField from 'material-ui/lib/text-field'
 import LabourItem from '../scripts/LabourItem'
 import { connect } from 'react-redux'
-import { updateTotalCost, updateTotalCharge, updateeTotalCost, updateeTotalCharge,addItem,addJob, updateName } from './action-creators'
+import { updateTotalCost, updateName, updateTotalCharge, updateeTotalCost, updateeTotalCharge,addItem,addJob } from './action-creators'
 
 
 function mapStateToProps (state) {
@@ -58,7 +58,9 @@ const Layout = React.createClass({
                     }
                     updateeTotalCharge={etotalCharge =>
                       dispatch(updateeTotalCharge(etotalCharge))
-                  }/>
+                  }
+                  updateName={name =>
+                      dispatch(updateName(name))}/>
                </Paper>
 
 

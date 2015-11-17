@@ -35,9 +35,9 @@ var TotalsTable =  React.createClass({
             </TableHeaderColumn>
           </TableRow>
           <TableRow>
-            <TableHeaderColumn >Charge</TableHeaderColumn>
             <TableHeaderColumn >Name</TableHeaderColumn>
-            <TableHeaderColumn>Cost</TableHeaderColumn>
+            <TableHeaderColumn >Cost</TableHeaderColumn>
+            <TableHeaderColumn>Charge</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -53,7 +53,33 @@ var TotalsTable =  React.createClass({
             })
           }
         </TableBody>
-      </Table>
+        </Table>
+        //  <TableHeader >
+        //   <TableRow>
+        //     <TableHeaderColumn colSpan="3" tooltip='Expenses' style={{textAlign: 'center'}}>
+        //       Expenses
+        //     </TableHeaderColumn>
+        //   </TableRow>
+        //   <TableRow>
+        //     <TableHeaderColumn >Name</TableHeaderColumn>
+        //     <TableHeaderColumn >Cost</TableHeaderColumn>
+        //     <TableHeaderColumn>Charge</TableHeaderColumn>
+        //   </TableRow>
+        // </TableHeader>
+        // <TableBody>
+        //   {
+        //     items.map(item => {
+        //       return (
+        //         <TableRow>
+        //           <TableRowColumn >{item.name}</TableRowColumn>
+        //           <TableRowColumn>{item.etotalCost}</TableRowColumn>
+        //           <TableRowColumn>{item.etotalCharge}</TableRowColumn>
+        //         </TableRow>
+        //         )
+        //     })
+        //   }
+        // </TableBody>
+
     )
   }
 })

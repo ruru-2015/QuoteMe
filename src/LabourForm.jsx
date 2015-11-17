@@ -15,7 +15,7 @@ var LabourForm =  React.createClass({
 
   onSubmit: function(e){
     const { dispatch } = this.props
-    console.log('props', this.props)
+    console.log('labour props', this.props)
     e.preventDefault();
     var name = this.refs.name.getValue();
     var time= this.refs.time.getValue();

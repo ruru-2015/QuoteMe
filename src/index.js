@@ -10,7 +10,6 @@ import { Provider } from 'react-redux'
 const InitialState = {
   activeJob : {
     name:'',
-    ename:'',
     totalCost: 0,
     totalCharge: 0,
     etotalCost: 0,
@@ -48,6 +47,11 @@ else if (action.type === 'TOTAL_CHARGE') {
    else if (action.type === 'NAME') {
     return Object.assign({}, state, {
       name: action.payload
+    })
+  }
+   else if (action.type === 'ENAME') {
+    return Object.assign({}, state, {
+      ename: action.payload
     })
   }
   else {

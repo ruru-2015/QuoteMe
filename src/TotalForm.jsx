@@ -24,14 +24,13 @@ var TotalForm =  React.createClass({
     console.log('totalForm props', this.props)
      var finalCost = etotalCost+totalCost;
      var finalCharge = etotalCharge+totalCharge;
-
     return(
       <div>
         <p>Your Jobs</p>
           <p>Totals</p>
           <TotalsTable jobs={jobs} items={items}/>
-            <p>Total cost to you: {finalCost} </ p>
-            <p>Recommmended Price:{finalCharge} </p>
+            <p>Total Cost: {finalCost} </ p>
+            <p>Total Price:{finalCharge} </p>
       </div>
     )
   }
