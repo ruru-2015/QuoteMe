@@ -67,7 +67,7 @@ var TotalsTable =  React.createClass({
 
           </TableBody>
         </Table>
-        <p>Final Labor Cost: {this.props.finalCost}     Final Labor Charge: {this.props.finalCharge} </p>
+        <p> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Final Labor Cost: {this.props.finalCost} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Final Labor Charge: {this.props.finalCharge} </p>
 
          <Table>
            <TableHeader >
@@ -96,7 +96,7 @@ var TotalsTable =  React.createClass({
           }
         </TableBody>
       </Table>
-    <p>Final Expense Cost: {this.props.efinalCost}       Final Expense Charge: {this.props.efinalCharge} </ p>
+    <p> &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;Final Expense Cost: {this.props.efinalCost} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Final Expense Charge: {this.props.efinalCharge} </ p>
     </div>
 
     )
