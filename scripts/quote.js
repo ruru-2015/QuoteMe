@@ -8,7 +8,7 @@ function Quote(config){
 Quote.prototype.save = function() {
    var quoteListRef = new Firebase('https://quotemedad.firebaseio.com/');
    var ref = quoteListRef.child('quotes');
-   ref.push({Quote1: 'dodgy offer'});
+   ref.push({labourItems: this.labourItems, expenseItems: this.expenseItems});
 };
 
 
