@@ -6,7 +6,8 @@ import RaisedButton from 'material-ui/lib/raised-button'
 import ExpenseForm from './ExpenseForm'
 import donut from '../scripts/d3.jsx'
 import TextField from 'material-ui/lib/text-field'
-
+import Layout from './Layout'
+import TotalsTable from './table'
 
 
 var TotalForm =  React.createClass({
@@ -17,26 +18,19 @@ var TotalForm =  React.createClass({
   }},
 
   render(){
-    const { totalCost, totalCharge } = this.props
+    const { totalCost, totalCharge, etotalCost, etotalCharge, name, ename} = this.props
     console.log('totalForm props', this.props)
-
+     var finalCost = etotalCost+totalCost;
+     var finalCharge = etotalCharge+totalCharge;
     return(
-      <form className="TotalForm" >
-      <p>Totals</p>
-        <TextField hintText={''+totalCost} ref='name' style={{
-              width: '100%'
-              }}  />
-        <TextField hintText= 'time'  ref='time' style={{
-              width: '100%'
-              }}/>
-        <TextField hintText="Cost"ref='cost'style={{
-              width: '100%'
-              }} />
-        <TextField hintText={''+totalCharge}ref='charge' style={{
-              width: '100%'
-              }}/>
-       <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>Add
-     </form>
+      <div>
+        <p>Your Jobs</p>
+          <p>Totals</p>
+          <TotalsTable />
+          <TextField hintText={ename}  />
+            <p>Total cost to you: {''+finalCost} </ p>
+            <p>Recommmended Price:{''+finalCharge} </p>
+      </div>
     )
   }
 })

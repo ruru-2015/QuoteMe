@@ -14,6 +14,7 @@ var LabourForm =  React.createClass({
 
   onSubmit: function(e){
     e.preventDefault();
+    var name = this.refs.name.getValue();
     var time= this.refs.time.getValue();
     var cost= this.refs.cost.getValue();
     var charge= this.refs.charge.getValue();
@@ -21,28 +22,12 @@ var LabourForm =  React.createClass({
     var totalCost = time * cost;
     this.props.updateTotalCharge(totalCharge)
     this.props.updateTotalCost(totalCost)
-
-// var name = this.refs.name.getValue();
-// var time= this.refs.time.getValue();
-// var cost= this.refs.cost.getValue();
-// var charge= this.refs.charge.getValue();
-// var job = new LabourItem(name,time,cost,charge)
-// var lconfig = {
-//   name: name,
-//   time:time,
-//   cost:cost,
-//   charge:charge,
-//   TotalCost:job.calcBaseTotal(),
-//   TotalCharge:job.calcChargeTotal()
-// }
-// console.log(lconfig)
   },
 
   render(){
     const { totalCost,totalCharge } = this.props
-
     return(
-      <form className="labourForm" onSubmit={this.onSubmit}>
+      <form className="LabourForm" onSubmit={this.onSubmit}>
       <p>Labour Costs</p>
         <TextField hintText="Name" ref='name' style={{
               width: '100%'
@@ -56,6 +41,8 @@ var LabourForm =  React.createClass({
         <TextField hintText="Charge"ref='charge' style={{
               width: '100%'
               }}/>
+        <p>Labour cost: {''+totalCost} </p>
+        <p>Labour charge: {''+totalCharge} </p>
        <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>Add
      </form>
     )
