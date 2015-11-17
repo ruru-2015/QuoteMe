@@ -1,0 +1,9 @@
+{
+  "firebase": "quotemedad",
+  "public": "public/dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
