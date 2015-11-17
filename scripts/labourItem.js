@@ -12,3 +12,5 @@ LabourItem.prototype.calcBaseTotal = function(){
 LabourItem.prototype.calcChargeTotal = function(){
   return this.time*this.charge;
 };
+
+module.exports = LabourItem
