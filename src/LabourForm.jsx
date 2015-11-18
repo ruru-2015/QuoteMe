@@ -5,6 +5,9 @@ import RaisedButton from 'material-ui/lib/raised-button'
 import LabourItem from '../scripts/LabourItem'
 import { addJob, addItem,updateName }from './action-creators'
 
+// use a general form component ?
+
+
 var LabourForm =  React.createClass({
   getDefaultProps: function() {
   return {

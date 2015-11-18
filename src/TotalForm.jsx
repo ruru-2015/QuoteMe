@@ -11,6 +11,8 @@ import TotalsTable from './table'
 
 
 var TotalForm =  React.createClass({
+
+  // used ??
   getDefaultProps: function() {
   return {
     value: '',

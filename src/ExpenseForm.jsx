@@ -6,6 +6,7 @@ import ExpenseItem from '../scripts/ExpenseItem'
 import { addJob, addItem,updateName,updateeTotalCharge,updateeTotalCost }from './action-creators'
 
 export default React.createClass({
+  // used ?
   getDefaultProps: function() {
   return {
     value: ''
@@ -16,11 +17,13 @@ export default React.createClass({
     console.log('expense props', this.props)
     e.preventDefault();
     var name = this.refs.name.getValue();
-    var quantity= this.refs.quantity.getValue();
-    var cost= this.refs.cost.getValue();
-    var charge= this.refs.charge.getValue();
+    var quantity = this.refs.quantity.getValue();
+    var cost = this.refs.cost.getValue();
+    var charge = this.refs.charge.getValue();
     var etotalCharge = quantity * charge;
     var etotalCost = quantity * cost;
+
+    /// could split this to be on the input onchange events
     dispatch(updateName(name))
     dispatch(updateeTotalCharge(etotalCharge));
     dispatch(updateeTotalCost(etotalCost));
@@ -36,9 +39,10 @@ export default React.createClass({
     console.log('props in ExpenseForm', this.props)
         const { etotalCost, etotalCharge,ename } = this.props.activeJob
 
+    /// could split this to be on the input onchange events
     return(
       <form className="ExpenseForm" onChange={this.onChange} onSubmit={this.onSubmit}>
-      <p>Expenses </p>
+        <p>Expenses </p>
         <TextField hintText="Name" style={{
               width: '100%'
               }} ref='name'   />
@@ -51,11 +55,10 @@ export default React.createClass({
         <TextField hintText="Charge"ref='charge'style={{
               width: '100%'
               }} />
-           <p>Expense cost: {etotalCost} </p>
+        <p>Expense cost: {etotalCost} </p>
         <p>Expense charge: {etotalCharge} </p>
-       <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>
+        <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>
      </form>
     )
   }
 })
-

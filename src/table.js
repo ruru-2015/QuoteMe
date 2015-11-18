@@ -7,7 +7,7 @@ const TableHeaderColumn = require('material-ui/lib/table/table-header-column');
 const TableRow = require('material-ui/lib/table/table-row');
 const TableRowColumn = require('material-ui/lib/table/table-row-column');
 
-
+// general table component ??
 
 var TotalsTable =  React.createClass({
 
@@ -38,6 +38,7 @@ var TotalsTable =  React.createClass({
       height: '300px',
     };
     return(
+      // indentation
       <div>
       <Table>
       <TableHeader >
