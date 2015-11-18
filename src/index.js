@@ -19,8 +19,20 @@ const InitialState = {
   itemState:{items:[], efinalCost: 0, efinalCharge: 0},
 }
 
+// const activeJobMethods = {
+//   TOTAL_COST: function {
+//     return
+//   }
+// }
+
 // reducer
+// could pull out into a separate reducer file
+
 function activeJobReducer (state = {}, action) {
+  // refactor switch case
+  // return activeJobMethods[action.type](state, action)
+
+
   if (action.type === 'TOTAL_COST') {
     return Object.assign({}, state, {
       totalCost: action.payload,
@@ -44,6 +56,14 @@ function activeJobReducer (state = {}, action) {
     })
   }
   else if (action.type === 'NAME') {
+    // could use object ...spread
+
+    // return {
+    //   ...state,
+    //   name: action.paylod
+    // }
+
+
     return Object.assign({}, state, {
       name: action.payload
     })
@@ -74,12 +94,13 @@ function itemStateReducer (state = { items: [], efinalCost: 0, efinalCharge:0 },
       items: [...state.items, action.payload ],
       efinalCost: (state.efinalCost + action.payload.etotalCost),
       efinalCharge: (state.efinalCharge + action.payload.etotalCharge)
-
     }
   } else {
     return state
   }
 }
+
+// could use combineReducers? optional
 
 function quoteMap(state = InitialState, action) {
   return {
@@ -88,10 +109,13 @@ function quoteMap(state = InitialState, action) {
     itemState: itemStateReducer(state.itemState, action),
   }
 }
+
 const store = createStore(quoteMap)
+
+
 ReactDOM.render(
   <Provider store={store} >
-  <Layout />
+    <Layout />
   </Provider>,
   document.getElementById('app')
   );
