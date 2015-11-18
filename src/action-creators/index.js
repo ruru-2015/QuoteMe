@@ -22,14 +22,6 @@ export function updateName (name) {
     payload: name
   }
 }
-export function updateEName (ename) {
-  console.log('action: ename')
-  return {
-    type: 'ENAME',
-    payload: ename
-  }
-}
-
 export function updateeTotalCost (etotalCost) {
   console.log('action: etotalCost')
   return {
@@ -61,6 +53,6 @@ export function addItem(item) {
   console.log('action: item')
   return {
     type: 'ADD_ITEM',
-      payload: item
+    payload: item
   }
 }

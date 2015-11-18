@@ -10,8 +10,13 @@ import TotalForm from './TotalForm'
 import TextField from 'material-ui/lib/text-field'
 import LabourItem from '../scripts/LabourItem'
 import { connect } from 'react-redux'
-import { updateTotalCost, updateName, updateTotalCharge, updateeTotalCost, updateeTotalCharge,addItem,addJob } from './action-creators'
-
+import { updateTotalCost,
+  updateName,
+  updateTotalCharge,
+  updateeTotalCost,
+  updateeTotalCharge,
+  addItem,
+  addJob } from './action-creators'
 
 function mapStateToProps (state) {
   return {
@@ -19,23 +24,20 @@ function mapStateToProps (state) {
   }
 }
 
-
 const Layout = React.createClass({
 
   render: function() {
     console.log('Layout props', this.props)
-
-    // do data structure access here (only)
+   // do data structure access here (only)
     const { dispatch, activeJob } = this.props
     const { jobs, finalCost, finalCharge } = this.props.jobState
     const { items, efinalCost, efinalCharge } = this.props.itemState
     const { etotalCost, etotalCharge, totalCost, totalCharge, name } = this.props.activeJob
 
 
-
-
     return <div className="layout" style = {{display:'inline-block'}}>
-            <AppBar />
+            <AppBar
+              title="Sir Zachary is a Pooey Bottom :)"/>
              <br/>
               <Paper className="paper" zDepth={3} style={{
               display:'inline-block',
@@ -45,13 +47,14 @@ const Layout = React.createClass({
                   activeJob={activeJob}
                   dispatch={dispatch}
                   updateTotalCost={totalCost =>
-                    dispatch(updateTotalCost(totalCost))
-                   }
-                    updateTotalCharge={totalCharge =>
-                    dispatch(updateTotalCharge(totalCharge))
+                  dispatch(updateTotalCost(totalCost))
+                  }
+                  updateTotalCharge={totalCharge =>
+                  dispatch(updateTotalCharge(totalCharge))
                   }
                   updateName={name =>
-                      dispatch(updateName(name))}/>
+                  dispatch(updateName(name))
+                  }/>
             </Paper>
                <Paper className="paper" zDepth={3} style={{
                  display:'inline-block',
@@ -61,13 +64,14 @@ const Layout = React.createClass({
                     dispatch={dispatch}
                     activeJob={activeJob}
                     updateeTotalCost={etotalCost =>
-                      dispatch(updateeTotalCost(etotalCost))
+                    dispatch(updateeTotalCost(etotalCost))
                     }
                     updateeTotalCharge={etotalCharge =>
-                      dispatch(updateeTotalCharge(etotalCharge))
-                  }
-                  updateName={name =>
-                      dispatch(updateName(name))}/>
+                    dispatch(updateeTotalCharge(etotalCharge))
+                    }
+                    updateName={name =>
+                    dispatch(updateName(name))
+                    }/>
                </Paper>
 
 

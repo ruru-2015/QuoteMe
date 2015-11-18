@@ -16,23 +16,16 @@ var TotalForm =  React.createClass({
     value: '',
 
   }},
-
   render(){
     console.log('props in totalForm', this.props)
-
-    console.log('totalForm props', this.props)
-
     return(
       <div>
         <p>Your Jobs</p>
           <p>Totals</p>
-
           <TotalsTable {...this.props}/>
-
       </div>
     )
   }
 })
-
 
 export default TotalForm

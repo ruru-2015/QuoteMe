@@ -32,7 +32,6 @@ export default React.createClass({
     dispatch(addItem(this.props.activeJob))
   },
 
-
   render(){
     console.log('props in ExpenseForm', this.props)
         const { etotalCost, etotalCharge,ename } = this.props.activeJob

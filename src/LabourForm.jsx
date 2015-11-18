@@ -11,8 +11,6 @@ var LabourForm =  React.createClass({
     value: ''
   }},
 
-
-
   onChange: function(e){
     const { dispatch } = this.props
     console.log('labour props', this.props)
@@ -31,7 +29,9 @@ var LabourForm =  React.createClass({
   onSubmit: function(e){
     const { dispatch } = this.props
     e.preventDefault();
-    dispatch(addJob(this.props.activeJob))
+    console.log('this is e',e);
+    dispatch(addJob(this.props.activeJob));
+
   },
 
   render(){
@@ -55,7 +55,7 @@ var LabourForm =  React.createClass({
               }}/>
         <p>Labour cost: {totalCost} </p>
         <p>Labour charge: {totalCharge} </p>
-       <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>Add
+       <RaisedButton type="submit"  label="Submit" secondary={true} style={{ margin:'2%',  }}/>
      </form>
     )
   }
